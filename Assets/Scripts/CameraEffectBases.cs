@@ -134,9 +134,9 @@ public class PE_BloomSpecific : PostEffectBase
     public override void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
         m_RenderCamera.RenderWithShader(m_RenderShader, "RenderType");
-        m_GaussianBlur.OnRenderImage(m_RenderTexture, m_RenderTexture);     //Blur
+        m_GaussianBlur.OnRenderImage(m_RenderTexture, m_RenderTexture);
         m_Material.SetTexture("_RenderTex", m_RenderTexture);
-        Graphics.Blit(source, destination, m_Material, 1);        //Mix
+        Graphics.Blit(source, destination, m_Material, 0);
     }
     public override void OnDestroy()
     {

@@ -6,7 +6,12 @@
 		Cull Off Lighting Off ZWrite Off Fog { Color(0,0,0,0) }
 		UsePass "Game/Effect/BloomSpecific/Color/MAIN"
 	}
-
+		SubShader
+	{
+		Tags { "RenderType" = "BloomTexture"  "IgnoreProjector" = "True" "Queue" = "Transparent" }
+		Cull Off Lighting Off ZWrite Off Fog { Color(0,0,0,0) }
+		UsePass "Game/Effect/BloomSpecific/Texture/MAIN"
+	}
 	SubShader
 	{
 		Tags{ "RenderType" = "BloomParticlesAdditive" "IgnoreProjector" = "True" "Queue" = "Transparent" }
@@ -16,18 +21,10 @@
 
 	SubShader
 	{
-		Tags{ "RenderType" = "BloomParticlesAlphaBlend" "IgnoreProjector" = "True" "Queue" = "Transparent" }
-		Cull Off Lighting Off ZWrite Off Fog { Color(0,0,0,0) }
-		UsePass "Game/Particle/AlphaBlend/MAIN"
-	}
-
-	SubShader
-	{
 		Tags { "RenderType" = "BloomDissolveEdge" "IgnoreProjector" = "True" "Queue" = "Transparent" }
 		Cull Off Lighting Off ZWrite Off Fog { Color(0,0,0,0) }
 		UsePass "Game/Effect/BloomSpecific/Bloom_DissolveEdge/MAIN"
 	}
-
 
 	SubShader
 	{

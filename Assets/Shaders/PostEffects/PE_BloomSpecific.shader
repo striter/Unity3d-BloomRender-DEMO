@@ -25,32 +25,8 @@
 
 	SubShader
 	{
-		Cull Off ZWrite Off ZTest Always
-		Pass
-		{
-			name "Minus"
-			CGPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
-			v2f vert(appdata v)
-			{
-				v2f o;
-				o.vertex = UnityObjectToClipPos(v.vertex);
-				o.uv = v.uv;
-				return o;
-			}
-
-			fixed4 frag(v2f i) : SV_Target
-			{
-				fixed4 col =tex2D(_RenderTex,i.uv)- tex2D(_MainTex,i.uv) ;
-				return col;
-			}
-			ENDCG
-		}
-
 		Pass
 		{		
-			name "Mix"
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
